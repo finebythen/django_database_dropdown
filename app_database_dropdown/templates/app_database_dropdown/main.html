@@ -1,0 +1,37 @@
+{% extends 'app_database_dropdown/base.html' %}
+
+{% block title %}Database Dropdown-Menu{% endblock title %}
+
+{% block style %}
+
+    .container {
+        margin-top: 3rem;
+    }
+
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+                {{ formset.license_plate }}
+
+                <select name="car_type">
+                    {% for item in car_type_list %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <input type="submit" VALUE="Submit">
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
